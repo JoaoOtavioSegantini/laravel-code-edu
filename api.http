@@ -1,0 +1,67 @@
+@token = {{api_token.response.body.token}}
+@host = http://localhost:8000
+
+### 
+# @name api_token
+POST {{host}}/api/access_token
+Accept: application/json
+Content-Type: application/json
+
+{
+   "username": "admin@user.com",
+   "password": "secret"
+}
+
+###
+GET {{host}}/api/teacher/class_informations/1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}} 
+
+###
+GET {{host}}/api/teacher/class_teachings/1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}} 
+
+###
+GET {{host}}/api/teacher/class_teachings
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}} 
+
+###
+GET {{host}}/api/teacher/class_informations
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}} 
+
+###
+GET {{host}}/api/student/class_informations/1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}} 
+
+###
+GET {{host}}/api/student/class_teachings/1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{host}}/api/student/class_tests/1/do
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}} 
+
+###
+GET {{host}}/api/student/class_tests/results/per_subject
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}} 
+
+###
+GET {{host}}/api/student/class_informations
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}} 
